@@ -21,6 +21,6 @@ jobs:
     - name: Build
       run: yarn build
     - name: Test
-      run: CI=true yarn test
+      run: CI=true yarn test --coverage
     - name: Lint
       run: CI=true yarn lint
