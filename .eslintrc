@@ -1,0 +1,71 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb-typescript"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "react-hooks"
+  ],
+  "rules": {
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "ignore",
+        "custom": "ignore",
+        "exceptions": [
+          ""
+        ]
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/require-default-props": "off",
+    "object-curly-newline": "off",
+    "max-len": [
+      "error",
+      {
+        "code": 120,
+        "ignoreTemplateLiterals": true,
+        "ignoreStrings": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.test.ts*"
+      ],
+      "rules": {
+        "max-len": [
+          "error",
+          {
+            "code": 120
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/setupTests.ts",
+        "src/test/*"
+      ],
+      "rules": {
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+      }
+    }
+  ]
+}
