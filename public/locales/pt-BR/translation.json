@@ -1,3 +1,29 @@
 {
-  "app_title": "Secret Santa"
+  "app_title": "Secret Santa",
+  "secret_santa": {
+    "steps": {
+      "event_details": {
+        "title": "Detalhes do Evento"
+      },
+      "participants": {
+        "title": "Participantes"
+      },
+      "confirmation": {
+        "title": "Confirmação"
+      }
+    },
+    "navigation": {
+      "0": {
+        "next": "Próximo"
+      },
+      "1": {
+        "next": "Revisão",
+        "back": "Voltar"
+      },
+      "2": {
+        "run": "Sortear Amigo Secreto",
+        "back": "Voltar"
+      }
+    }
+  }
 }
