@@ -1,3 +1,29 @@
 {
-  "app_title": "Secret Santa"
+  "app_title": "Secret Santa",
+  "secret_santa": {
+    "steps": {
+      "event_details": {
+        "title": "Event Details"
+      },
+      "participants": {
+        "title": "Participants"
+      },
+      "confirmation": {
+        "title": "Confirmation"
+      }
+    },
+    "navigation": {
+      "0": {
+        "next": "Next"
+      },
+      "1": {
+        "next": "Proceed to Confirmation",
+        "back": "Back"
+      },
+      "2": {
+        "run": "Run Secret Santa",
+        "back": "Back"
+      }
+    }
+  }
 }
