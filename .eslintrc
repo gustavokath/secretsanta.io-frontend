@@ -35,6 +35,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/require-default-props": "off",
     "object-curly-newline": "off",
+    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
     "max-len": [
       "error",
       {
@@ -42,7 +43,7 @@
         "ignoreTemplateLiterals": true,
         "ignoreStrings": true
       }
-    ]
+    ],
   },
   "overrides": [
     {

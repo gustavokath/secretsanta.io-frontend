@@ -1,8 +1,8 @@
 const colors = {
   lightGray: '#EBEEF0',
   gray: '#CCC',
-  darkGray: '#666',
-  primary: '#009688',
+  darkGray: '#333',
+  primary: '#2E7D32',
   primaryDark: '#00675b',
   primaryLight: '#52c7b8',
 };

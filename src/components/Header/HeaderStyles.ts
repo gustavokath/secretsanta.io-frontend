@@ -8,7 +8,6 @@ const useHeaderStyles = makeStyles((theme: Theme) => createStyles({
     marginRight: theme.spacing(2),
   },
   toolbar: {
-    minHeight: 128,
     alignItems: 'flex-start',
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
@@ -16,6 +15,10 @@ const useHeaderStyles = makeStyles((theme: Theme) => createStyles({
   title: {
     flexGrow: 1,
     alignSelf: 'flex-end',
+  },
+  logo: {
+    height: '70px',
+    marginRight: '1rem',
   },
 }));
 

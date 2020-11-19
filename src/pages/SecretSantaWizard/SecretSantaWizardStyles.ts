@@ -14,7 +14,19 @@ const useWizardStyles = makeStyles((theme: Theme) => createStyles({
   navigator: {
     display: 'flex',
     justifyContent: 'space-between',
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(1),
   },
 }));
 
-export default useWizardStyles;
+const useErrorNotificationStyles = makeStyles((theme: Theme) => createStyles({
+  root: {
+    backgroundColor: theme.palette.error.dark,
+    color: theme.palette.error.contrastText,
+  },
+  actionButton: {
+    color: theme.palette.error.contrastText,
+  },
+}));
+
+export { useWizardStyles, useErrorNotificationStyles };

@@ -3,27 +3,65 @@
   "secret_santa": {
     "steps": {
       "event_details": {
-        "title": "Detalhes do Evento"
+        "title": "Detalhes do Evento",
+        "fields": {
+          "event_name": {
+            "field": "Nome do Evento",
+            "default_value": "Amigo Secreto {{year}}"
+          },
+          "event_date": {
+            "field": "Data do Evento",
+            "format": "dd/MM/yyyy",
+            "validations": {
+              "invalid_date": "Data Inválida"
+            }
+          }
+        },
+        "navigation": {
+          "next": "Próximo"
+        }
       },
       "participants": {
-        "title": "Participantes"
+        "title": "Participantes",
+        "navigation": {
+          "next": "Revisão",
+          "back": "Voltar"
+        },
+        "fields": {
+          "participant_name": "Nome do Participante",
+          "language": "Idioma",
+          "contact_method": "Tipo de Notificação",
+          "contact_sms": "SMS",
+          "contact_email": "Email",
+          "contact_phone": "Telefone",
+          "contact_phone_placeholder": "+55 (DDD) XXXXX-XXXX"
+        },
+        "add_participant": "Adicionar Participante"
       },
       "confirmation": {
-        "title": "Confirmação"
+        "title": "Confirmação",
+        "subsections": {
+          "details": "Detalhes do Evento",
+          "participants": "Participantes"
+        },
+        "navigation": {
+          "next": "Sortear Amigo Secreto",
+          "back": "Voltar"
+        }
       }
     },
-    "navigation": {
-      "0": {
-        "next": "Próximo"
-      },
-      "1": {
-        "next": "Revisão",
-        "back": "Voltar"
-      },
-      "2": {
-        "run": "Sortear Amigo Secreto",
-        "back": "Voltar"
-      }
+    "validations": {
+      "empty_field": "Campo Obrigatório",
+      "invalid_email": "Email Inválido",
+      "invalid_phone_country": "Adicione o código do país (Ex: +55)",
+      "invalid_phone": "Telefone Inválido"
+    },
+    "error_messages": {
+      "generic": "Alguns items requerem mudanças"
+    },
+    "langauges": {
+      "pt-BR": "Português",
+      "en": "Inglês"
     }
   }
 }
