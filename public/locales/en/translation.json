@@ -3,27 +3,65 @@
   "secret_santa": {
     "steps": {
       "event_details": {
-        "title": "Event Details"
+        "title": "Event Details",
+        "fields": {
+          "event_name": {
+            "field": "Event Name",
+            "default_value": "Secret Santa {{year}}"
+          },
+          "event_date": {
+            "field": "Event Date",
+            "format": "MM/dd/yyyy",
+            "validations": {
+              "invalid_date": "Invalid Date"
+            }
+          }
+        },
+        "navigation": {
+          "next": "Next"
+        }
       },
       "participants": {
-        "title": "Participants"
+        "title": "Participants",
+        "navigation": {
+          "next": "Proceed to Confirmation",
+          "back": "Back"
+        },
+        "fields": {
+          "participant_name": "Participant Name",
+          "language": "Language",
+          "contact_method": "Notification Method",
+          "contact_sms": "SMS",
+          "contact_email": "Email",
+          "contact_phone": "Phone",
+          "contact_phone_placeholder": "+1 XXX-XXX-XXXX"
+         },
+        "add_participant": "Add Participant"
       },
       "confirmation": {
-        "title": "Confirmation"
+        "title": "Confirmation",
+        "subsections": {
+          "details": "Event Details",
+          "participants": "Participants"
+        },
+        "navigation": {
+          "next": "Run Secret Santa",
+          "back": "Back"
+        }
       }
     },
-    "navigation": {
-      "0": {
-        "next": "Next"
-      },
-      "1": {
-        "next": "Proceed to Confirmation",
-        "back": "Back"
-      },
-      "2": {
-        "run": "Run Secret Santa",
-        "back": "Back"
-      }
+    "validations": {
+      "empty_field": "Required Field",
+      "invalid_email": "Invalid Email",
+      "invalid_phone_country": "Add your country code (Ex: +1)",
+      "invalid_phone": "Invalid Phone"
+    },
+    "error_messages": {
+      "generic": "There are some items that require attention"
+    },
+    "langauges": {
+      "pt-BR": "Portuguese",
+      "en": "English"
     }
   }
 }
