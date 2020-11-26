@@ -48,6 +48,13 @@
           "next": "Run Secret Santa",
           "back": "Back"
         }
+      },
+      "final": {
+        "title": "The Secret Santa has been sorted!",
+        "warn-message": "Tell your friends to check their phones or emails.",
+        "thank-message": "Thank you for use my system!",
+        "happy-message": "Have a mary christmas and a happy new year!",
+        "button": "Make a new Secret Santa"
       }
     },
     "validations": {

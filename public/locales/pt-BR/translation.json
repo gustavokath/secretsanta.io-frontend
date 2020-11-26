@@ -48,6 +48,13 @@
           "next": "Sortear Amigo Secreto",
           "back": "Voltar"
         }
+      },
+      "final": {
+        "title": "O Amigo Secreto foi realizado!",
+        "warn-message": "Avise seus amigos para verificarem o telefone ou email",
+        "thank-message": "Obrigado por realizar seu amigo secreto aqui.",
+        "happy-message": "Tenha um feliz Natal e um próspero ano novo!",
+        "button": "Fazer outro Amigo Screto"
       }
     },
     "validations": {

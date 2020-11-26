@@ -8,7 +8,7 @@ const defaultTheme = createMuiTheme({
       main: colors.primary,
     },
     secondary: {
-      main: '#303F9F',
+      main: colors.secondary,
     },
     background: {
       default: colors.lightGray,

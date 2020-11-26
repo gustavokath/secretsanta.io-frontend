@@ -10,7 +10,7 @@ import { StepAction } from '../../types/StepAction';
 import { useStepsCommonStyle, useMuiInputBase } from '../SecretSantaStepsCommonStyles';
 
 interface SecretSantaConfirmationStepProps {
-  onSubmit: (updates: Partial<SecretSanta>, action: StepAction, error: boolean) => void
+  onSubmit: (event: SecretSanta) => void
   onStepChange: (updates: Partial<SecretSanta>, action: StepAction, error: boolean) => void
   event: SecretSanta
 }
@@ -22,7 +22,7 @@ const SecretSantaConfirmationStep = (props: SecretSantaConfirmationStepProps) =>
   useMuiInputBase(ThemeService.currentUserTheme());
 
   const handleNext = () => {
-    onSubmit({}, 'NEXT', false);
+    onSubmit(event);
   };
 
   const handleBack = () => {

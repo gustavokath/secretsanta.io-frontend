@@ -8,6 +8,8 @@ import SecretSantaStepper from './SecretSantaStepper';
 import SecretSantaEventStep from './steps/SecretSantaEventStep';
 import SecretSantaParticipantsStep from './steps/SecretSantaParticipantsStep';
 import SecretSantaConfirmationStep from './steps/SecretSantaConfirmationStep';
+import SecretSantaFinalStep from './steps/SecretSantaFinalStep';
+import SecretSantaSevrice from '../../services/secretsanta/SecretSantaSevrice';
 import { StepAction } from './types/StepAction';
 import { useWizardStyles, useErrorNotificationStyles } from './SecretSantaWizardStyles';
 import SecretSanta from '../../entities/SecretSanta';
@@ -33,8 +35,17 @@ const SecretSantaWizard = () => {
     setEventData({ ...event, ...eventUpdates });
   };
 
+  const restart = () => {
+    setEventData(new SecretSanta(
+      t('secret_santa.steps.event_details.fields.event_name.default_value', {
+        year: new Date().getFullYear(),
+      }),
+    ));
+    setCurrentStep(0);
+  };
+
   const nextStep = () => {
-    const MAX_STEP = 2;
+    const MAX_STEP = 3;
     if (currentStep < MAX_STEP) {
       setCurrentStep(currentStep + 1);
     }
@@ -65,11 +76,21 @@ const SecretSantaWizard = () => {
     }
   };
 
+  const handleSubmit = (secretsanta: SecretSanta) => {
+    SecretSantaSevrice.run(secretsanta)
+      .then(() => nextStep())
+      .catch(() => setErrorStates({
+        hasErrors: true,
+        message: 'Fail to run Secret Santa',
+      }));
+  };
+
   const StepsContent = (step: number) => {
     switch (step) {
+      case 3: return <SecretSantaFinalStep onRestart={restart} />;
       case 2: return (
         <SecretSantaConfirmationStep
-          onSubmit={handleStepChange}
+          onSubmit={handleSubmit}
           onStepChange={handleStepChange}
           event={event}
         />

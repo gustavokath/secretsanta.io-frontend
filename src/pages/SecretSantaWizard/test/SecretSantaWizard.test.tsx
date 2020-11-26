@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import DefaultTestWrapper from '../../../test/DefaultTestWrapper';
 import SecretSantaWizard from '../index';
 
@@ -89,6 +89,32 @@ describe('SecretSantaWizard', () => {
       expect(screen.getAllByText('Participants')[1]).toBeVisible();
       expect(screen.getByText('Back')).toBeVisible();
       expect(screen.getByText('Proceed to Confirmation')).toBeVisible();
+    });
+  });
+
+  describe('when click run secret santa', () => {
+    beforeEach(() => {
+      fireEvent.click(screen.queryAllByText('Next')[0]);
+      fireEvent.click(screen.getAllByText('Proceed to Confirmation')[0]);
+      expect(screen.getAllByText('Confirmation')[1]).toBeVisible();
+      expect(screen.getByText('Back')).toBeVisible();
+      expect(screen.getByText('Run Secret Santa')).toBeVisible();
+    });
+
+    it('should diplay go to finish step when success', () => {
+      const mockFetch = jest.fn().mockResolvedValue(() => jest.fn());
+      global.fetch = mockFetch;
+
+      fireEvent.click(screen.getAllByText('Run Secret Santa')[0]);
+    });
+
+    it('should diplay errorMessageWhenError', async () => {
+      const mockFetch = jest.fn().mockRejectedValue(new Error());
+      global.fetch = mockFetch;
+
+      fireEvent.click(screen.getAllByText('Run Secret Santa')[0]);
+      await waitFor(() => expect(mockFetch).toHaveBeenCalled());
+      expect(screen.getByText('Fail to run Secret Santa')).toBeVisible();
     });
   });
 });
